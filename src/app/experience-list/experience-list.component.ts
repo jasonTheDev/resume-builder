@@ -11,8 +11,14 @@ import { Experience } from '../experience';
 })
 export class ExperienceListComponent {
 
-  experience: Experience = {
-    position: "Wildfire Fighter",
-    description: "Worked with an awesome team"
-  }
+  experiences: Experience[] = [
+    {
+      position: "Wildfire Fighter",
+      description: "Worked with an awesome team"
+    },
+    {
+      position: "Teaching Assistant",
+      description: "Communicated technical topics to students"
+    }
+  ]
 }
