@@ -1,6 +1,6 @@
 import { Component, Input } from '@angular/core';
 import { BulletPointComponent } from '../bullet-point/bullet-point.component';
-import { Experience } from '../experience';
+import { Experience } from '../Experience.interface';
 
 @Component({
   selector: 'app-experience',

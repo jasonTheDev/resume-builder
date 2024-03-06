@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ExperienceComponent } from '../experience/experience.component';
-import { Experience } from '../experience';
+import { Experience } from '../Experience.interface';
 
 @Component({
   selector: 'app-experience-list',
