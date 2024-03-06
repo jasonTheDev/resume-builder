@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { Experience } from './Experience.interface';
-import { BulletPoint } from './BulletPoint.interface';
 
 @Injectable({
   providedIn: 'root'
