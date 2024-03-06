@@ -17,7 +17,12 @@ export class ExperienceListComponent {
       position: "Wildfire Fighter",
       bulletPoints: [
         {
-          description: "Worked with an awesome team"
+          description: "Worked with an awesome team",
+          applicableTags: ["teamwork"]
+        },
+        {
+          description: "Camped in the forest",
+          applicableTags: ["camping"]
         },
       ] 
     },
@@ -25,8 +30,13 @@ export class ExperienceListComponent {
       position: "Teaching Assistant",
       bulletPoints: [
         {
-          description: "Communicated technical topics to students"
-        }
+          description: "Communicated technical topics to students",
+          applicableTags: ["communication"]
+        },
+        {
+          description: "Taught technical topics to students",
+          applicableTags: ["teaching"]
+        },
       ]
     }
   ]
