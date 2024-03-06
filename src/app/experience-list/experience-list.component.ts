@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { ExperienceComponent } from '../experience/experience.component';
 import { Experience } from '../Experience.interface';
 import { BulletPoint } from '../BulletPoint.interface';
+import { ExperienceService } from '../experience.service';
 
 @Component({
   selector: 'app-experience-list',
@@ -11,33 +12,9 @@ import { BulletPoint } from '../BulletPoint.interface';
   styleUrl: './experience-list.component.css'
 })
 export class ExperienceListComponent {
-
-  experiences: Experience[] = [
-    {
-      position: "Wildfire Fighter",
-      bulletPoints: [
-        {
-          description: "Worked with an awesome team",
-          applicableTags: ["teamwork"]
-        },
-        {
-          description: "Camped in the forest",
-          applicableTags: ["camping"]
-        },
-      ] 
-    },
-    {
-      position: "Teaching Assistant",
-      bulletPoints: [
-        {
-          description: "Communicated technical topics to students",
-          applicableTags: ["communication"]
-        },
-        {
-          description: "Taught technical topics to students",
-          applicableTags: ["teaching"]
-        },
-      ]
-    }
-  ]
+  experiences: Experience[] = []
+  experienceService: ExperienceService = inject(ExperienceService);
+  constructor() {
+    this.experiences = this.experienceService.getAllExperiences();
+  }
 }
