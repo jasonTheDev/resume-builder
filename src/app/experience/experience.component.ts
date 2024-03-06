@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { BulletPointComponent } from '../bullet-point/bullet-point.component';
+import { Experience } from '../experience';
 
 @Component({
   selector: 'app-experience',
@@ -9,5 +10,7 @@ import { BulletPointComponent } from '../bullet-point/bullet-point.component';
   styleUrl: './experience.component.css'
 })
 export class ExperienceComponent {
+
+  @Input() experience!: Experience;
 
 }
