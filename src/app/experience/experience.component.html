@@ -1,2 +1,6 @@
 <h2>From ExperienceComponent: {{ experience.position }}</h2>
-<app-bullet-point></app-bullet-point>
+@for (bulletPoint of experience.bulletPoints; track bulletPoint.description) {
+  <app-bullet-point [bulletPoint]="bulletPoint"></app-bullet-point>
+} @empty {
+  <h3>No bullet point to show</h3>
+}

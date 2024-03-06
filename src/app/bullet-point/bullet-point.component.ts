@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { BulletPoint } from '../BulletPoint.interface';
 
 @Component({
   selector: 'app-bullet-point',
@@ -9,4 +10,5 @@ import { Component } from '@angular/core';
 })
 export class BulletPointComponent {
 
+    @Input() bulletPoint!: BulletPoint;
 }
