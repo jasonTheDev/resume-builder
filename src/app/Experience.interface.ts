@@ -1,4 +1,6 @@
+import { BulletPoint } from "./BulletPoint.interface";
+
 export interface Experience {
   position: string;
-  description: string;
+  bulletPoints: BulletPoint[];
 };

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ExperienceComponent } from '../experience/experience.component';
 import { Experience } from '../Experience.interface';
+import { BulletPoint } from '../BulletPoint.interface';
 
 @Component({
   selector: 'app-experience-list',
@@ -14,11 +15,19 @@ export class ExperienceListComponent {
   experiences: Experience[] = [
     {
       position: "Wildfire Fighter",
-      description: "Worked with an awesome team"
+      bulletPoints: [
+        {
+          description: "Worked with an awesome team"
+        },
+      ] 
     },
     {
       position: "Teaching Assistant",
-      description: "Communicated technical topics to students"
+      bulletPoints: [
+        {
+          description: "Communicated technical topics to students"
+        }
+      ]
     }
   ]
 }
