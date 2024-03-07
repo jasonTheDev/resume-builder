@@ -3,6 +3,7 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms';
 import { ExperienceComponent } from '../experience/experience.component';
 import { Experience } from '../Experience.interface';
 import { ExperienceService } from '../experience.service';
+import { BulletPoint } from '../BulletPoint.interface';
 
 @Component({
   selector: 'app-experience-list',
@@ -30,8 +31,19 @@ export class ExperienceListComponent {
     if (this.filterControl.value === 'all') {
       this.filteredExperiences = this.experiences;
     } else {
-      this.filteredExperiences = this.experiences.filter(
-        experience => experience.position === this.filterControl.value);
+      const deepCopy = this.experiences.map(exp => ({...exp}));
+      let exp: Experience[] = [];
+      for (let experience of deepCopy) {
+        let bullets: BulletPoint[] = [];
+        for (let bullet of experience.bulletPoints) {
+          if (bullet.applicableTags.includes(this.filterControl.value ?? 'all')) {
+            bullets.push(bullet);
+          }
+        }
+        experience.bulletPoints = bullets;
+        exp.push(experience);
+      }
+      this.filteredExperiences = exp.filter(experience => experience.bulletPoints.length > 0);
     }
   }
 }

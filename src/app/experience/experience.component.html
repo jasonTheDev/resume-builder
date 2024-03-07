@@ -1,4 +1,4 @@
-<h2>From ExperienceComponent: {{ experience.position }}</h2>
+<h2>{{ experience.position }}</h2>
 @for (bulletPoint of experience.bulletPoints; track bulletPoint.description) {
   <app-bullet-point [bulletPoint]="bulletPoint"></app-bullet-point>
 } @empty {

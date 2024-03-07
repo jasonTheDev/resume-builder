@@ -11,7 +11,7 @@ export class ExperienceService {
       bulletPoints: [
         {
           description: "Worked with an awesome team",
-          applicableTags: ["teamwork"]
+          applicableTags: ["teamwork", "working under pressure"]
         },
         {
           description: "Camped in the forest",
