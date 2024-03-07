@@ -1,6 +1,15 @@
-<p>experience-list works!</p>
-@for (experience of experiences; track experience.position) {
-  <app-experience [experience]="experience"></app-experience>
-} @empty {
-  <h2>No experiences to show</h2>
-}
+<section>
+  <label>
+    <input type="radio" [formControl]="filterControl" value="all" checked> All
+  </label>
+  <label>
+    <input type="radio" [formControl]="filterControl" value="Teaching Assistant"> Teaching Assistant
+  </label>
+</section>
+<section>
+  @for (experience of filteredExperiences; track experience.position) {
+    <app-experience [experience]="experience"></app-experience>
+  } @empty {
+    <h2>No experiences to show</h2>
+  }
+</section>
