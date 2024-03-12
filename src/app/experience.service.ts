@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Experience } from './Experience.interface';
+import { BulletPoint } from './BulletPoint.interface';
 
 @Injectable({
   providedIn: 'root'
@@ -36,5 +37,16 @@ export class ExperienceService {
 
   getAllExperiences(): Experience[] {
     return this.experiences;
+  }
+
+  getUniqueTags(): string[] {
+    let tags: string[] = [];
+    for (const experience of this.experiences) {
+      for (const bullet of experience.bulletPoints) {
+        tags.push(...bullet.applicableTags);
+      }
+    }
+    // remove duplicate tags
+    return [...new Set(tags)];
   }
 }
