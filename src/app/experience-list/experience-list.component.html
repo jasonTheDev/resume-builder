@@ -2,12 +2,13 @@
   <label>
     <input type="radio" [formControl]="filterControl" value="all" checked> All
   </label>
-  <label>
-    <input type="radio" [formControl]="filterControl" value="communication"> Communication
-  </label>
-  <label>
-    <input type="radio" [formControl]="filterControl" value="teamwork"> Teamwork
-  </label>
+  @for (tag of uniqueTags; track tag) {
+    <label>
+      <input type="radio" [formControl]="filterControl" [value]="tag"> {{tag}}
+    </label>
+  } @empty {
+    <h2>No Tags</h2>
+  }
 </section>
 <section>
   @for (experience of filteredExperiences; track experience.position) {
