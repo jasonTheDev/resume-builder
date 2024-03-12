@@ -22,9 +22,7 @@ export class ExperienceListComponent {
   constructor() {
     this.experiences = this.experienceService.getAllExperiences();
     this.filteredExperiences = this.experiences;
-
-    this.uniqueTags = this.experienceService.getUniqueTags();
-
+    this.uniqueTags = this.getUniqueTags();
     this.filterControl.valueChanges.subscribe(() => {
       this.filterExperiences();
     });
@@ -56,7 +54,18 @@ export class ExperienceListComponent {
       bulletPoints: []
     }
     this.experiences.push(experience);
-    this.filterExperiences();
+    // this.filterExperiences();
     console.log(`Added ${positionTitle}`)
+  }
+
+  getUniqueTags(): string[] {
+    let tags: string[] = [];
+    for (const experience of this.experiences) {
+      for (const bullet of experience.bulletPoints) {
+        tags.push(...bullet.applicableTags);
+      }
+    }
+    // remove duplicate tags
+    return [...new Set(tags)];
   }
 }
