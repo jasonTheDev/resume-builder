@@ -49,4 +49,14 @@ export class ExperienceListComponent {
       this.filteredExperiences = exp.filter(experience => experience.bulletPoints.length > 0);
     }
   }
+
+  saveExperience(positionTitle:string): void {
+    const experience: Experience = {
+      position: positionTitle,
+      bulletPoints: []
+    }
+    this.experiences.push(experience);
+    this.filterExperiences();
+    console.log(`Added ${positionTitle}`)
+  }
 }
