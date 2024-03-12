@@ -15,12 +15,15 @@ import { BulletPoint } from '../BulletPoint.interface';
 export class ExperienceListComponent {
   experiences: Experience[] = [];
   filteredExperiences: Experience[] = [];
+  uniqueTags: string[] = [];
   experienceService: ExperienceService = inject(ExperienceService);
   filterControl = new FormControl('all');
 
   constructor() {
     this.experiences = this.experienceService.getAllExperiences();
     this.filteredExperiences = this.experiences;
+
+    this.uniqueTags = this.experienceService.getUniqueTags();
 
     this.filterControl.valueChanges.subscribe(() => {
       this.filterExperiences();
