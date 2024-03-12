@@ -1,6 +1,7 @@
-<p>
+<li>
+  {{ bulletPoint.description }}
+  <br>
   @for (tag of bulletPoint.applicableTags; track tag) {
     <span>{{tag}}</span>
   }
-  {{ bulletPoint.description }}
-</p>
+</li>

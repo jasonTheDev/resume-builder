@@ -1,6 +1,8 @@
 <h2>{{ experience.position }}</h2>
 @for (bulletPoint of experience.bulletPoints; track bulletPoint.description) {
-  <app-bullet-point [bulletPoint]="bulletPoint"></app-bullet-point>
+  <ul>
+    <app-bullet-point [bulletPoint]="bulletPoint"></app-bullet-point>
+  </ul>
 } @empty {
   <h3>No bullet point to show</h3>
 }
