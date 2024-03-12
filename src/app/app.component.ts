@@ -10,6 +10,6 @@ import { ExperienceListComponent } from './experience-list/experience-list.compo
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'experience-filter';
+  title = 'resume-builder';
 }
 

@@ -14,16 +14,16 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
-  it(`should have the 'experience-filter' title`, () => {
+  it(`should have the 'resume-builder' title`, () => {
     const fixture = TestBed.createComponent(AppComponent);
     const app = fixture.componentInstance;
-    expect(app.title).toEqual('experience-filter');
+    expect(app.title).toEqual('resume-builder');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, experience-filter');
+    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, resume-builder');
   });
 });
