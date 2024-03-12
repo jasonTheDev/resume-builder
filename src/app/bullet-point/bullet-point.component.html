@@ -5,3 +5,12 @@
     <span>{{tag}}</span>
   }
 </li>
+
+@if (!editable) {
+  <button (click)="editable = !editable">Edit</button>
+  <button (click)="remove.emit()">Delete</button>
+}
+@else {
+  <button (click)="editable = !editable">Cancel</button>
+  <button>Save</button>
+}
