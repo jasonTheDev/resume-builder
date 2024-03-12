@@ -17,3 +17,10 @@
     <h2>No experiences to show</h2>
   }
 </section>
+<section>
+  <form>
+    <h2>Add Experience</h2>
+    <input type="text" placeholder="Position Title" #newExperience>
+    <button type="button" (click)="saveExperience(newExperience.value)">Add</button>
+  </form>
+</section>
