@@ -18,6 +18,7 @@ export class ExperienceListComponent {
   uniqueTags: string[] = [];
   experienceService: ExperienceService = inject(ExperienceService);
   filterControl = new FormControl('all');
+  experienceControl = new FormControl('');
 
   constructor() {
     this.experiences = this.experienceService.getAllExperiences();
@@ -48,14 +49,13 @@ export class ExperienceListComponent {
     }
   }
 
-  saveExperience(positionTitle:string): void {
+  addExperience(positionTitle:string): void {
     const experience: Experience = {
       position: positionTitle,
       bulletPoints: []
     }
     this.experiences.push(experience);
-    // this.filterExperiences();
-    console.log(`Added ${positionTitle}`)
+    this.experienceControl.setValue('');
   }
 
   getUniqueTags(): string[] {
