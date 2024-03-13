@@ -22,6 +22,7 @@
   <br>
   @for (tag of bulletPoint.applicableTags; track tag) {
     <span>{{tag}}</span>
+    <button (click)="removeTag(tag)">X</button>
   }
   <input
     placeholder="add skill"

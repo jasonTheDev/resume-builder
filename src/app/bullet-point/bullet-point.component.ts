@@ -25,4 +25,8 @@ export class BulletPointComponent {
     if (!tag) return;
     this.bulletPoint.applicableTags.push(tag);
   }
+
+  removeTag(tag: string): void {
+    this.bulletPoint.applicableTags = this.bulletPoint.applicableTags.filter(t => t !== tag);
+  }
 }
