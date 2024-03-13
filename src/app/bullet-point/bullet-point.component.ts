@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output, } from '@angular/core';
 import { BulletPoint } from '../BulletPoint.interface';
 
 @Component({
@@ -10,14 +10,12 @@ import { BulletPoint } from '../BulletPoint.interface';
 })
 export class BulletPointComponent {
 
-  editable: boolean = false;
-
   @Input() bulletPoint!: BulletPoint;
+  @Input() editable!: boolean;
   @Output() remove = new EventEmitter<BulletPoint>();
 
   saveBullet(description: string): void {
     if (!description) return;
-    this.editable = false;
     this.bulletPoint.description = description;
   }
 
