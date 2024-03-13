@@ -20,4 +20,13 @@ export class BulletPointComponent {
     this.editable = false;
     this.bulletPoint.description = description;
   }
+
+  addTag(tag: string): void {
+    if (!tag) return;
+    this.bulletPoint.applicableTags.push(tag);
+  }
+
+  removeTag(tag: string): void {
+    this.bulletPoint.applicableTags = this.bulletPoint.applicableTags.filter(t => t !== tag);
+  }
 }
