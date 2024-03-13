@@ -68,4 +68,11 @@ export class ExperienceListComponent {
     // remove duplicate tags
     return [...new Set(tags)];
   }
+
+  removeExperience(experience: Experience): void {
+    console.log("made it to method");
+    this.experiences = this.experiences.filter(e => e.position !== experience.position);
+    this.uniqueTags = this.getUniqueTags();
+    this.filterExperiences();
+  }
 }
