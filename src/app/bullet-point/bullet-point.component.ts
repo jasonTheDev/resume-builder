@@ -14,4 +14,10 @@ export class BulletPointComponent {
 
   @Input() bulletPoint!: BulletPoint;
   @Output() remove = new EventEmitter<BulletPoint>();
+
+  saveBullet(description: string): void {
+    if (!description) return;
+    this.editable = false;
+    this.bulletPoint.description = description;
+  }
 }
