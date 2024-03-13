@@ -17,4 +17,12 @@ export class ExperienceComponent {
   remove(bullet: BulletPoint) {
     this.experience.bulletPoints = this.experience.bulletPoints.filter(b => b !== bullet);
   }
+
+  addBullet(description: string): void {
+    const bullet: BulletPoint = {
+      description: description,
+      applicableTags: []
+    }
+    this.experience.bulletPoints.push(bullet);
+  }
 }

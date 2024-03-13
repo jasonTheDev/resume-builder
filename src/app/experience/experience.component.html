@@ -1,8 +1,14 @@
 <h2>{{ experience.position }}</h2>
+<ul>
 @for (bulletPoint of experience.bulletPoints; track bulletPoint.description) {
-  <ul>
     <app-bullet-point (remove)="remove(bulletPoint)" [bulletPoint]="bulletPoint"></app-bullet-point>
-  </ul>
-} @empty {
-  <h3>No bullet point to show</h3>
 }
+  <li>
+    <input
+      placeholder="Add Bullet"
+      value="description"
+      #newBullet
+      (keyup.enter)="addBullet(newBullet.value)" />
+      <button (click)="addBullet(newBullet.value)">Save</button>
+  </li>
+</ul>
