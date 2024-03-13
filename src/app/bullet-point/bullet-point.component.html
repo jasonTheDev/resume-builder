@@ -1,6 +1,21 @@
-<p>
+<li>
+  {{ bulletPoint.description }}
+  <br>
   @for (tag of bulletPoint.applicableTags; track tag) {
     <span>{{tag}}</span>
   }
-  {{ bulletPoint.description }}
-</p>
+</li>
+
+@if (!editable) {
+  <button (click)="editable = !editable">Edit</button>
+  <button (click)="remove.emit()">Delete</button>
+}
+@else {
+  <input
+    placeholder="edit experience"
+    [value]="bulletPoint.description"
+    #editedBullet
+    (keyup.enter)="saveBullet(editedBullet.value)" />
+  <button (click)="editable = !editable">Cancel</button>
+  <button (click)="saveBullet(editedBullet.value)">Save</button>
+}
