@@ -20,7 +20,14 @@
 <section>
   <form>
     <p>Add Experience</p>
-    <input type="text" [formControl]="experienceControl" #newExperience>
-    <button type="button" (click)="addExperience(newExperience.value)">Add</button>
+    <input
+      type="text"
+      [formControl]="experienceControl"
+      #newExperience />
+    <button
+      type="button"
+      (click)="addExperience(newExperience.value)">
+      Add
+    </button>
   </form>
 </section>

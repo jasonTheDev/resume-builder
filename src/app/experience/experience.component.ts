@@ -2,19 +2,19 @@ import { Component, Input } from '@angular/core';
 import { BulletPointComponent } from '../bullet-point/bullet-point.component';
 import { Experience } from '../Experience.interface';
 import { BulletPoint } from '../BulletPoint.interface';
-import { FormControl } from '@angular/forms';
+import { FormControl, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-experience',
   standalone: true,
-  imports: [BulletPointComponent],
+  imports: [BulletPointComponent, ReactiveFormsModule],
   templateUrl: './experience.component.html',
   styleUrl: './experience.component.css'
 })
 export class ExperienceComponent {
 
   editable: boolean = false;
-  experienceControl = new FormControl('');
+  bulletControl = new FormControl('');
 
   @Input() experience!: Experience;
 
@@ -28,6 +28,7 @@ export class ExperienceComponent {
       applicableTags: []
     }
     this.experience.bulletPoints.push(bullet);
+    this.bulletControl.setValue('');
   }
 
   negateEditable(): void {

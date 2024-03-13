@@ -19,8 +19,8 @@
 @if (editable) {
   <p>Add a new bullet</p>
   <input
-    placeholder="Add Bullet"
-    value=""
+    type="text"
+    [formControl]="bulletControl"
     #newBullet
     (keyup.enter)="addBullet(newBullet.value)" />
   <button (click)="addBullet(newBullet.value)">Save</button>
