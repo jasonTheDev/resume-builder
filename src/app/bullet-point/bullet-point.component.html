@@ -22,8 +22,11 @@
     <button (click)="removeTag(tag)">X</button>
   }
   <input
+    type="text"
+    [formControl]="tagControl"
     placeholder="add skill"
-    #newTag />
+    #newTag 
+    (keyup.enter)="addTag(newTag.value)"/>
   <button (click)="addTag(newTag.value)">Add</button>
   <br>
 }
