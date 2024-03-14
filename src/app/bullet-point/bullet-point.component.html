@@ -3,9 +3,13 @@
 @if (!editable) {
   {{ bulletPoint.description }}
   <br>
+  <div class="tag-container">
   @for (tag of bulletPoint.applicableTags; track tag) {
-    <span>{{tag}}</span>
+    <div>
+      <span class="tag">{{tag}}</span>
+    </div>
   }
+  </div>
 }
 
 <!-- Edit mode -->
@@ -17,17 +21,23 @@
     (keyup)="saveBullet(editedBullet.value)" />
   <button (click)="remove.emit()">Delete</button>
   <br>
-  @for (tag of bulletPoint.applicableTags; track tag) {
-    <span>{{tag}}</span>
-    <button (click)="removeTag(tag)">X</button>
-  }
-  <input
-    type="text"
-    [formControl]="tagControl"
-    placeholder="add skill"
-    #newTag 
-    (keyup.enter)="addTag(newTag.value)"/>
-  <button (click)="addTag(newTag.value)">Add</button>
+  <div class="tag-container">
+    @for (tag of bulletPoint.applicableTags; track tag) {
+      <div class="removable-tag">
+        <span class="tag">{{tag}}</span>
+        <button (click)="removeTag(tag)">X</button>
+      </div>
+    }
+    <div>
+      <input
+      type="text"
+      [formControl]="tagControl"
+      placeholder="add skill"
+      #newTag 
+      (keyup.enter)="addTag(newTag.value)"/>
+      <button (click)="addTag(newTag.value)">Add</button>
+    </div>
+  </div>
   <br>
 }
 </li>

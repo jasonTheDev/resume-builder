@@ -1,5 +1,17 @@
-span {
+.tag {
   font-weight: bold;
-  font-size: small;
+  font-size: 12px;
+  padding: 2px;
+  margin: 2px;
   background-color: lightblue;
+}
+
+.removable-tag {
+  margin-right: 4px;
+}
+
+.tag-container {
+  display: flex;
+  flex-flow: row wrap;
+  margin: 4px 0px 4px 0px;
 }
