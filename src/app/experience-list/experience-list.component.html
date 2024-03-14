@@ -18,17 +18,20 @@
   } @empty {
     <h2>No experiences to show</h2>
   }
-  <form>
-    <p>Add Experience</p>
-    <input
-      type="text"
-      [formControl]="experienceControl"
-      #newExperience 
-      (keyup.enter)="addExperience(newExperience.value)"/>
-    <button
-      type="button"
-      (click)="addExperience(newExperience.value)">
-      Add
-    </button>
-  </form>
+  <div class="horizontal-line">
+    <form>
+      <p>Add Experience</p>
+      <input
+        type="text"
+        [formControl]="experienceControl"
+        placeholder="New Experience"
+        #newExperience 
+        (keyup.enter)="addExperience(newExperience.value)"/>
+      <button
+        type="button"
+        (click)="addExperience(newExperience.value)">
+        Add
+      </button>
+    </form>
+  </div>
 </section>
