@@ -1,6 +1,33 @@
-<p>
+<li>
+<!-- View mode -->
+@if (!editable) {
+  {{ bulletPoint.description }}
+  <br>
   @for (tag of bulletPoint.applicableTags; track tag) {
     <span>{{tag}}</span>
   }
-  {{ bulletPoint.description }}
-</p>
+}
+
+<!-- Edit mode -->
+@if (editable) {
+  <input
+    placeholder="edit experience"
+    [value]="bulletPoint.description"
+    #editedBullet
+    (keyup)="saveBullet(editedBullet.value)" />
+  <button (click)="remove.emit()">Delete</button>
+  <br>
+  @for (tag of bulletPoint.applicableTags; track tag) {
+    <span>{{tag}}</span>
+    <button (click)="removeTag(tag)">X</button>
+  }
+  <input
+    type="text"
+    [formControl]="tagControl"
+    placeholder="add skill"
+    #newTag 
+    (keyup.enter)="addTag(newTag.value)"/>
+  <button (click)="addTag(newTag.value)">Add</button>
+  <br>
+}
+</li>

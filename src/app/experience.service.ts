@@ -11,7 +11,7 @@ export class ExperienceService {
       bulletPoints: [
         {
           description: "Worked with an awesome team",
-          applicableTags: ["teamwork", "working under pressure"]
+          applicableTags: ["teamwork", "problem solving"]
         },
         {
           description: "Camped in the forest",
@@ -31,7 +31,11 @@ export class ExperienceService {
           applicableTags: ["teaching"]
         },
       ]
-    }
+    },
+    {
+      position: "Empty Position",
+      bulletPoints: [] 
+    },
   ]
 
   getAllExperiences(): Experience[] {
