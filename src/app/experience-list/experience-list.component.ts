@@ -1,9 +1,11 @@
 import { Component, inject } from '@angular/core';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
+import { Subscription } from 'rxjs';
 import { ExperienceComponent } from '../experience/experience.component';
 import { Experience } from '../Experience.interface';
 import { ExperienceService } from '../experience.service';
 import { BulletPoint } from '../BulletPoint.interface';
+import { TagsService } from '../tags.service';
 
 @Component({
   selector: 'app-experience-list',
@@ -16,16 +18,26 @@ export class ExperienceListComponent {
   experiences: Experience[] = [];
   filteredExperiences: Experience[] = [];
   uniqueTags: string[] = [];
+
   experienceService: ExperienceService = inject(ExperienceService);
+  tagsService: TagsService = inject(TagsService);
+  tagSubscription: Subscription;
+
   filterControl = new FormControl('all');
   experienceControl = new FormControl('');
 
   constructor() {
     this.experiences = this.experienceService.getAllExperiences();
     this.filteredExperiences = this.experiences;
-    this.uniqueTags = this.getUniqueTags();
+    this.tagsService.setFilterableTags(this.tagsService.extractTags(this.experiences));
+    this.uniqueTags = this.tagsService.getUniqueFilterableTags();
+
     this.filterControl.valueChanges.subscribe(() => {
       this.filterExperiences();
+    });
+
+    this.tagSubscription = this.tagsService.tagsUpdated$.subscribe(() => {
+      this.uniqueTags = this.tagsService.getUniqueFilterableTags();
     });
   }
 
@@ -58,21 +70,13 @@ export class ExperienceListComponent {
     this.experienceControl.setValue('');
   }
 
-  getUniqueTags(): string[] {
-    let tags: string[] = [];
-    for (const experience of this.experiences) {
-      for (const bullet of experience.bulletPoints) {
-        tags.push(...bullet.applicableTags);
-      }
-    }
-    // remove duplicate tags
-    return [...new Set(tags)];
-  }
-
   removeExperience(experience: Experience): void {
     console.log("made it to method");
     this.experiences = this.experiences.filter(e => e.position !== experience.position);
-    this.uniqueTags = this.getUniqueTags();
+    this.tagsService.removeFilterableTags(this.tagsService.extractTags([experience]));
+    this.uniqueTags = this.tagsService.getUniqueFilterableTags();
     this.filterExperiences();
   }
+
+
 }

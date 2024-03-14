@@ -1,6 +1,7 @@
-import { Component, EventEmitter, Input, Output, } from '@angular/core';
+import { Component, EventEmitter, Input, Output, inject } from '@angular/core';
 import { BulletPoint } from '../BulletPoint.interface';
 import { FormControl, ReactiveFormsModule } from '@angular/forms';
+import { TagsService } from '../tags.service';
 
 @Component({
   selector: 'app-bullet-point',
@@ -11,6 +12,7 @@ import { FormControl, ReactiveFormsModule } from '@angular/forms';
 })
 export class BulletPointComponent {
 
+  tagsService: TagsService = inject(TagsService);
   tagControl = new FormControl('');
 
   @Input() bulletPoint!: BulletPoint;
@@ -25,10 +27,12 @@ export class BulletPointComponent {
   addTag(tag: string): void {
     if (!tag) return;
     this.bulletPoint.applicableTags.push(tag);
+    this.tagsService.addFilterableTags([tag]);
     this.tagControl.setValue('');
   }
 
   removeTag(tag: string): void {
     this.bulletPoint.applicableTags = this.bulletPoint.applicableTags.filter(t => t !== tag);
+    this.tagsService.removeFilterableTags([tag]);
   }
 }
