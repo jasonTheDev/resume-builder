@@ -1,22 +1,29 @@
-<h2>{{ experience.position }}</h2>
 
 <!-- View mode -->
 @if (!editable) {
+  <h2>{{ experience.position }}</h2>
   <button (click)="editable = !editable">Edit</button>
+  <ul>
+    @for (bulletPoint of experience.bulletPoints; track bulletPoint.description) {
+        <app-bullet-point
+          (remove)="remove(bulletPoint)"
+          [bulletPoint]="bulletPoint"
+          [editable]="editable">
+        </app-bullet-point>
+    }
+  </ul>
 }
 
-<!-- Always -->
-<ul>
-@for (bulletPoint of experience.bulletPoints; track bulletPoint.description) {
+<!-- Edit mode -->
+@if (editable) {
+  <h2>{{ experience.position }}</h2>
+  @for (bulletPoint of experience.bulletPoints; track bulletPoint.description) {
     <app-bullet-point
       (remove)="remove(bulletPoint)"
       [bulletPoint]="bulletPoint"
       [editable]="editable">
     </app-bullet-point>
-}
-
-<!-- Edit mode -->
-@if (editable) {
+  }
   <p>Add a new bullet</p>
   <textarea
     placeholder="New bullet point"
@@ -32,4 +39,3 @@
     <button class="delete-button wide-button" (click)="removeExperience.emit()">Delete</button>  
   </div> 
   }
-</ul>

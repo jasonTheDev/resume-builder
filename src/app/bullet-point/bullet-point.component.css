@@ -2,6 +2,7 @@
   display: flex;
   flex-flow: row wrap;
   align-items: center;
+  gap: 4px;
 
   margin: 4px 0px 6px 0px;
 }
@@ -32,6 +33,12 @@
   border-radius: 0%;
 }
 
-.bullet {
+.add-tag-button {
+  font-size: 14px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+}
+
+.editable-bullet {
   margin-bottom: 10px;
 }

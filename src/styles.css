@@ -1,3 +1,10 @@
+body {
+  max-width: 800px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 /* Buttons */
 button {
   background-color: rgb(210, 210, 210);
@@ -24,7 +31,7 @@ button:hover {
 
 /* Input and textareas */
 textarea {
-  width: 90%;
+  width: 98%;
   height: 60px;
   padding: 8px 14px;
   resize: none;
