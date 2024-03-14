@@ -1,7 +1,23 @@
+.experience-header {
+  display: flex;
+  direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.experience-header h2 {
+  margin-bottom: 0px;
+}
+
+.edit-button {
+  height: 30px;
+}
+
 .button-container {
   display: flex;
   flex-direction: row;
   width: 100%;
+  gap: 10px;
 }
 
 .wide-button {

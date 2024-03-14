@@ -1,8 +1,16 @@
 body {
-  max-width: 800px;
+  max-width: 600px;
   display: block;
   margin-left: auto;
   margin-right: auto;
+
+  padding: 0px 20px 20px 20px;
+
+  border: 2px solid black;
+}
+
+h1 {
+  text-align: center;
 }
 
 /* Buttons */
@@ -31,7 +39,7 @@ button:hover {
 
 /* Input and textareas */
 textarea {
-  width: 98%;
+  width: 95%;
   height: 60px;
   padding: 8px 14px;
   resize: none;

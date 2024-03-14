@@ -1,8 +1,10 @@
 
 <!-- View mode -->
 @if (!editable) {
-  <h2>{{ experience.position }}</h2>
-  <button (click)="editable = !editable">Edit</button>
+  <div class="experience-header">
+    <h2>{{ experience.position }}</h2>
+    <button class="edit-button" (click)="editable = !editable">Edit</button>
+  </div>
   <ul>
     @for (bulletPoint of experience.bulletPoints; track bulletPoint.description) {
         <app-bullet-point
