@@ -5,8 +5,6 @@
     @for (tag of uniqueTags; track tag) {
       <input type="radio" [id]="tag" [formControl]="filterControl" [value]="tag">
       <label [for]="tag">{{tag}}</label>
-    } @empty {
-      <h2>No Tags</h2>
     }
   </div>
 </section>
@@ -20,7 +18,7 @@
     <form class="add-experience-container">
       <input
         type="text"
-        size="50"
+        size="40"
         [formControl]="experienceControl"
         placeholder="Add an Experience"
         #newExperience 
