@@ -35,10 +35,16 @@
     (keyup.enter)="addBullet(newBullet.value)">
   </textarea>
   <button (click)="addBullet(newBullet.value)">Add Bullet</button>
-  <br>
-  <br>
   <div class="button-container">
-    <button class="wide-button" (click)="editable = !editable">Done</button>
-    <button class="delete-button wide-button" (click)="removeExperience.emit()">Delete</button>  
+    <button
+      class="wide-button"
+      (click)="editable = !editable">
+      Done
+    </button>
+    <button
+      class="delete-button wide-button"
+      (click)="removeExperience.emit()">
+      Delete
+    </button>  
   </div> 
   }

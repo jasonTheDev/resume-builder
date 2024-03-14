@@ -10,7 +10,10 @@
 </section>
 <section>
   @for (experience of filteredExperiences; track experience.position) {
-    <app-experience (removeExperience)="removeExperience(experience)" [experience]="experience"></app-experience>
+    <app-experience
+      (removeExperience)="removeExperience(experience)"
+      [experience]="experience">
+    </app-experience>
   } @empty {
     <h2>No experiences to show</h2>
   }
