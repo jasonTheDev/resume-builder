@@ -24,7 +24,7 @@ button:hover {
 
 /* Input and textareas */
 textarea {
-  width: 100%;
+  width: 90%;
   height: 60px;
   padding: 8px 14px;
   resize: none;

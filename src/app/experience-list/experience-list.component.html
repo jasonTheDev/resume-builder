@@ -1,14 +1,16 @@
 <section>
-  <label>
-    <input type="radio" [formControl]="filterControl" value="all" checked> All
-  </label>
-  @for (tag of uniqueTags; track tag) {
+  <div class="filter-container">
     <label>
-      <input type="radio" [formControl]="filterControl" [value]="tag"> {{tag}}
+      <input type="radio" [formControl]="filterControl" value="all" checked> All
     </label>
-  } @empty {
-    <h2>No Tags</h2>
-  }
+    @for (tag of uniqueTags; track tag) {
+      <label>
+        <input type="radio" [formControl]="filterControl" [value]="tag"> {{tag}}
+      </label>
+    } @empty {
+      <h2>No Tags</h2>
+    }
+  </div>
 </section>
 <section>
   @for (experience of filteredExperiences; track experience.position) {
@@ -16,8 +18,6 @@
   } @empty {
     <h2>No experiences to show</h2>
   }
-</section>
-<section>
   <form>
     <p>Add Experience</p>
     <input
