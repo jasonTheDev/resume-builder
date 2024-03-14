@@ -28,9 +28,8 @@
       [editable]="editable">
     </app-bullet-point>
   }
-  <p>Add a new bullet</p>
   <textarea
-    placeholder="New bullet point"
+    placeholder="Add a bullet point"
     [formControl]="bulletControl"
     #newBullet
     (keyup.enter)="addBullet(newBullet.value)">

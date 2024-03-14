@@ -4,6 +4,10 @@ input[type=radio] {
   width: 0;
 }
 
+input[type=radio]:checked + label {
+  background-color: rgb(169, 226, 245);
+}
+
 .filter-container {
   display: flex;
   flex-flow: row wrap;
@@ -22,6 +26,15 @@ input[type=radio] {
   background-color: rgb(225, 225, 225);
 }
 
-input[type=radio]:checked + label {
-  background-color: rgb(169, 226, 245);
+.add-experience-container {
+  display: flex;
+  direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  margin-top: 20px;
+}
+
+.add-experience-container input {
+  padding: 6px;
 }

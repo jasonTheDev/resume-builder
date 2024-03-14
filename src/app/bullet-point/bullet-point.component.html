@@ -31,7 +31,7 @@
         <input
         type="text"
         [formControl]="tagControl"
-        placeholder="add skill"
+        placeholder="Add a skill"
         #newTag 
         (keyup.enter)="addTag(newTag.value)"/>
         <button class="add-tag-button" (click)="addTag(newTag.value)">Add</button>

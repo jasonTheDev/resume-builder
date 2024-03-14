@@ -17,12 +17,12 @@
     <h2>No experiences to show</h2>
   }
   <div class="horizontal-line">
-    <form>
-      <p>Add Experience</p>
+    <form class="add-experience-container">
       <input
         type="text"
+        size="50"
         [formControl]="experienceControl"
-        placeholder="New Experience"
+        placeholder="Add an Experience"
         #newExperience 
         (keyup.enter)="addExperience(newExperience.value)"/>
       <button
