@@ -1,33 +1,42 @@
-<li>
 <!-- View mode -->
 @if (!editable) {
-  {{ bulletPoint.description }}
-  <br>
-  @for (tag of bulletPoint.applicableTags; track tag) {
-    <span>{{tag}}</span>
-  }
+  <li>
+    {{ bulletPoint.description }}
+    <div class="tag-container">
+    @for (tag of bulletPoint.applicableTags; track tag) {
+      <div class="tag">
+        <span>{{tag}}</span>
+      </div>
+    }
+    </div>
+  </li>
 }
 
 <!-- Edit mode -->
 @if (editable) {
-  <input
-    placeholder="edit experience"
+  <div class="editable-bullet">
+    <textarea
     [value]="bulletPoint.description"
     #editedBullet
-    (keyup)="saveBullet(editedBullet.value)" />
-  <button (click)="remove.emit()">Delete</button>
-  <br>
-  @for (tag of bulletPoint.applicableTags; track tag) {
-    <span>{{tag}}</span>
-    <button (click)="removeTag(tag)">X</button>
+    (keyup)="saveBullet(editedBullet.value)">
+    </textarea>
+    <div class="tag-container">
+      @for (tag of bulletPoint.applicableTags; track tag) {
+        <div class="tag">
+          <span>{{tag}}</span>
+          <button class="x-button" (click)="removeTag(tag)">X</button>
+        </div>
+      }
+      <div>
+        <input
+        type="text"
+        [formControl]="tagControl"
+        placeholder="Add a skill"
+        #newTag 
+        (keyup.enter)="addTag(newTag.value)"/>
+        <button class="add-tag-button" (click)="addTag(newTag.value)">Add</button>
+      </div>
+    </div>
+    <button class="delete-button" (click)="remove.emit()">Delete Bullet</button>
+  </div>
   }
-  <input
-    type="text"
-    [formControl]="tagControl"
-    placeholder="add skill"
-    #newTag 
-    (keyup.enter)="addTag(newTag.value)"/>
-  <button (click)="addTag(newTag.value)">Add</button>
-  <br>
-}
-</li>

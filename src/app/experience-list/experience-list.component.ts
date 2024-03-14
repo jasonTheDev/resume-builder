@@ -62,6 +62,7 @@ export class ExperienceListComponent {
   }
 
   addExperience(positionTitle:string): void {
+    if (!positionTitle) { return; }
     const experience: Experience = {
       position: positionTitle,
       bulletPoints: []
