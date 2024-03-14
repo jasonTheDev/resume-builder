@@ -19,6 +19,8 @@
   height: 100%;
   justify-content: center;
   margin-right: 4px;
+
+  border-radius: 4px;
 }
 
 .tag span {
@@ -30,7 +32,6 @@
   padding: 0px;
   width: 22px;
   height: 100%;
-  border-radius: 0%;
 }
 
 .add-tag-button {
