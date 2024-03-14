@@ -1,17 +1,38 @@
-.tag {
-  font-weight: bold;
-  font-size: 12px;
-  padding: 2px;
-  margin: 2px;
-  background-color: lightblue;
-}
-
-.removable-tag {
-  margin-right: 4px;
-}
-
 .tag-container {
   display: flex;
   flex-flow: row wrap;
-  margin: 4px 0px 4px 0px;
+  align-items: center;
+
+  height: 24px;
+  margin: 4px 0px 6px 0px;
+}
+
+.tag {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  font-weight: bold;
+  font-size: 13px;
+
+  background-color: lightblue;
+  height: 100%;
+  justify-content: center;
+  margin-right: 4px;
+}
+
+.tag span {
+  padding: 0px 4px;
+}
+
+.x-button {
+  font-size: 14px;
+  padding: 0px;
+  width: 22px;
+  height: 100%;
+  border-radius: 0%;
+}
+
+.bullet {
+  margin-bottom: 10px;
 }

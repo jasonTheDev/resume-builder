@@ -18,15 +18,18 @@
 <!-- Edit mode -->
 @if (editable) {
   <p>Add a new bullet</p>
-  <input
-    type="text"
+  <textarea
+    placeholder="New bullet point"
     [formControl]="bulletControl"
     #newBullet
-    (keyup.enter)="addBullet(newBullet.value)" />
-  <button (click)="addBullet(newBullet.value)">Save</button>
+    (keyup.enter)="addBullet(newBullet.value)">
+  </textarea>
+  <button (click)="addBullet(newBullet.value)">Add Bullet</button>
   <br>
-  <br>  
-  <button (click)="editable = !editable">Done</button>
-  <button (click)="removeExperience.emit()">Delete</button>
-}
+  <br>
+  <div class="button-container">
+    <button class="wide-button" (click)="editable = !editable">Done</button>
+    <button class="delete-button wide-button" (click)="removeExperience.emit()">Delete</button>  
+  </div> 
+  }
 </ul>

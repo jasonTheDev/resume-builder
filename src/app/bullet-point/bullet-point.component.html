@@ -1,43 +1,42 @@
 <li>
-<!-- View mode -->
-@if (!editable) {
-  {{ bulletPoint.description }}
-  <br>
-  <div class="tag-container">
-  @for (tag of bulletPoint.applicableTags; track tag) {
-    <div>
-      <span class="tag">{{tag}}</span>
-    </div>
-  }
-  </div>
-}
-
-<!-- Edit mode -->
-@if (editable) {
-  <input
-    placeholder="edit experience"
-    [value]="bulletPoint.description"
-    #editedBullet
-    (keyup)="saveBullet(editedBullet.value)" />
-  <button (click)="remove.emit()">Delete</button>
-  <br>
-  <div class="tag-container">
-    @for (tag of bulletPoint.applicableTags; track tag) {
-      <div class="removable-tag">
-        <span class="tag">{{tag}}</span>
-        <button (click)="removeTag(tag)">X</button>
+  <div class="bullet">
+    <!-- View mode -->
+    @if (!editable) {
+      {{ bulletPoint.description }}
+      <div class="tag-container">
+      @for (tag of bulletPoint.applicableTags; track tag) {
+        <div class="tag">
+          <span>{{tag}}</span>
+        </div>
+      }
       </div>
     }
-    <div>
-      <input
-      type="text"
-      [formControl]="tagControl"
-      placeholder="add skill"
-      #newTag 
-      (keyup.enter)="addTag(newTag.value)"/>
-      <button (click)="addTag(newTag.value)">Add</button>
-    </div>
+
+    <!-- Edit mode -->
+    @if (editable) {
+      <textarea
+        [value]="bulletPoint.description"
+        #editedBullet
+        (keyup)="saveBullet(editedBullet.value)">
+      </textarea>
+      <div class="tag-container">
+        @for (tag of bulletPoint.applicableTags; track tag) {
+          <div class="tag">
+            <span>{{tag}}</span>
+            <button class="x-button" (click)="removeTag(tag)">X</button>
+          </div>
+        }
+        <div>
+          <input
+          type="text"
+          [formControl]="tagControl"
+          placeholder="add skill"
+          #newTag 
+          (keyup.enter)="addTag(newTag.value)"/>
+          <button (click)="addTag(newTag.value)">Add</button>
+        </div>
+      </div>
+      <button class="delete-button" (click)="remove.emit()">Delete</button>
+    }
   </div>
-  <br>
-}
 </li>
