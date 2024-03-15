@@ -69,12 +69,16 @@ export class ExperienceService {
           applicableTags: ["Teamwork"]
         },
         {
-          description: "Made critical decisions by systematically analyzing available information, prioritizing objectives, problem solving, and directing onsite resources to effectively lead the extinguishment of 12+ fires.",
+          description: "Made critical decisions by systematically analyzing available information, prioritizing objectives, problem solving, and directing onsite resources to effectively lead the extinguishment of 12 fires.",
           applicableTags: ["Problem solving"]
         },
         {
           description: "Championed organizational culture by planning fitness competitions, sporting events, get-togethers, and camping trips to bolster crew morale.",
-          applicableTags: ["Enthusiasm"]
+          applicableTags: ["Enthusiasm", "Teamwork"]
+        },
+        {
+          description: "Worked 15 hour days continuously over 14 day periods throughout busy fire seasons to contribute to the extinguishment of large scale project fires including the Elephant Hill fire of 2017.",
+          applicableTags: ["Hard work"]
         },
       ] 
     },
@@ -86,7 +90,7 @@ export class ExperienceService {
           applicableTags: ["Teamwork"]
         },
         {
-          description: "Took initiative to increase the PageSpeed Insight’s score of the landing page by 20 points.",
+          description: "Took initiative to increase the PageSpeed Insight's score of the landing page by 20 points.",
           applicableTags: ["Initiative"]
         },
       ]
