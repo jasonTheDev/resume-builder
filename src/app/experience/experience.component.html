@@ -1,32 +1,50 @@
-<h2>{{ experience.position }}</h2>
 
 <!-- View mode -->
 @if (!editable) {
-  <button (click)="editable = !editable">Edit</button>
+  <div class="experience-header horizontal-line">
+    <h2>{{ experience.position }}</h2>
+    <button class="edit-button" (click)="editable = !editable">Edit</button>
+  </div>
+  <ul>
+    @for (bulletPoint of experience.bulletPoints; track bulletPoint.description) {
+        <app-bullet-point
+          (remove)="remove(bulletPoint)"
+          [bulletPoint]="bulletPoint"
+          [editable]="editable">
+        </app-bullet-point>
+    }
+  </ul>
 }
 
-<!-- Always -->
-<ul>
-@for (bulletPoint of experience.bulletPoints; track bulletPoint.description) {
+<!-- Edit mode -->
+@if (editable) {
+  <div class="horizontal-line">
+    <h2>{{ experience.position }}</h2>
+  </div>
+  @for (bulletPoint of experience.bulletPoints; track bulletPoint.description) {
     <app-bullet-point
       (remove)="remove(bulletPoint)"
       [bulletPoint]="bulletPoint"
       [editable]="editable">
     </app-bullet-point>
-}
-
-<!-- Edit mode -->
-@if (editable) {
-  <p>Add a new bullet</p>
-  <input
-    type="text"
+  }
+  <textarea
+    placeholder="Add a bullet point"
     [formControl]="bulletControl"
     #newBullet
-    (keyup.enter)="addBullet(newBullet.value)" />
-  <button (click)="addBullet(newBullet.value)">Save</button>
-  <br>
-  <br>  
-  <button (click)="editable = !editable">Done</button>
-  <button (click)="removeExperience.emit()">Delete</button>
-}
-</ul>
+    (keyup.enter)="addBullet(newBullet.value)">
+  </textarea>
+  <button (click)="addBullet(newBullet.value)">Add Bullet</button>
+  <div class="button-container">
+    <button
+      class="wide-button"
+      (click)="editable = !editable">
+      Done
+    </button>
+    <button
+      class="delete-button wide-button"
+      (click)="removeExperience.emit()">
+      Delete
+    </button>  
+  </div> 
+  }

@@ -1,1 +1,58 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+  font-family: sans-serif, Arial;
+
+  max-width: 800px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+
+  padding: 0px 20px 20px 20px;
+
+  border: 2px solid black;
+  border-radius: 10px;
+}
+
+h1 {
+  font-family: 'Courier New', Courier, monospace;
+  text-align: center;
+}
+
+
+/* Buttons */
+button {
+  background-color: rgb(210, 210, 210);
+  border: none;
+  font-size: 16px;
+  padding: 5px 14px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+
+button:hover {
+  background-color: rgb(225, 225, 225);
+}
+
+
+/* Input and textareas */
+textarea {
+  width: 95%;
+  height: 60px;
+  padding: 8px 14px;
+  resize: none;
+}
+
+
+/* Classes */
+.delete-button {
+  background-color: rgb(230, 30, 30);
+  color: white;
+}
+
+.delete-button:hover {
+  background-color: rgb(255, 50, 50);
+}
+
+.horizontal-line {
+  border-top: 2px solid black;
+  margin-top: 20px;
+}
