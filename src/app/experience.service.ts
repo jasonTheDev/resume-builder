@@ -56,7 +56,7 @@ export class ExperienceService {
           applicableTags: ["Communication", "Front-end", "Python"]
         },
         {
-          description: "Empathize with frustrated students, to better coach them through the debugging process during in-class Python coding exercises.",
+          description: "Empathized with frustrated students, to better coach them through the debugging process during in-class Python coding exercises.",
           applicableTags: ["Python"]
         },
       ] 
@@ -73,7 +73,7 @@ export class ExperienceService {
           applicableTags: ["Problem solving"]
         },
         {
-          description: "Championed organizational culture by planning fitness competitions, sporting events, get-togethers, and camping trips to bolster crew morale.",
+          description: "Championed organizational culture by designing crew T-shirts, planning fitness competitions, sporting events, board game nights, get-togethers, and camping trips to bolster crew morale.",
           applicableTags: ["Enthusiasm", "Teamwork"]
         },
         {
